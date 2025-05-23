@@ -11,12 +11,18 @@ const Statistics = ({ courses }) => {
     return courses.reduce((total, course) => total + course.views, 0);
   };
 
-  const getAverageRating = () => {
-    const avg =
-      courses.reduce((total, course) => total + course.rating, 0) /
-      courses.length;
-    return avg.toFixed(1);
-  };
+const getAverageRating = () => {
+  if (!isValidData) return '0.0';
+
+  const totalRating = courses.reduce(
+    (total, course) => total + (course.rating || 0),
+    0
+  );
+  const avg = totalRating / courses.length;
+
+  return avg.toFixed(1);
+};
+
 
   return (
     <section className='statistics-widget'>

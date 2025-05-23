@@ -8,7 +8,7 @@ const PopularCourses = ({ courses }) => {
     );
   }
 
-  const topCourses = [...courses].sort((a, b) => a.views - b.views).slice(0, 3);
+  const topCourses = [...courses].sort((a, b) => b.views - a.views).slice(0, 3); // Van hoog naar laag sorteren
 
   return (
     <section className='popular-courses-widget'>
