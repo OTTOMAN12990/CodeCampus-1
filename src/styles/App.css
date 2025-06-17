@@ -14,6 +14,9 @@
   --border-radius: 10px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
 
 * {
@@ -99,7 +102,7 @@ body {
 }
 
 .error {
-  color: #e74c3c;
+  color:rgb(255, 25, 0);
 }
 
 .visually-hidden {
@@ -132,5 +135,117 @@ body {
   }
   .brand-tagline {
     font-size: 1rem;
+  }
+}
+
+:root {
+  --bg-color:rgb(255, 255, 255);
+  --text-color:rgb(0, 101, 190);
+  --card-bg:rgb(255, 255, 255);
+}
+
+[data-theme="dark"] {
+  --bg-color:rgb(72, 72, 72);
+  --text-color:rgb(0, 101, 190);
+  --card-bg:rgb(56, 56, 56);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.course-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Voeg dit toe aan je toggle button als stijl */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid var(--text-yellow);
+  color: var(--text-yellow);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+:root {
+  --button-bg:rgb(255, 255, 255);
+  --button-text:rgb(255, 0, 0);
+  --button-border:rgb(98, 98, 98);
+}
+
+[data-theme='dark'] {
+  --button-bg:rgb(98, 98, 98);
+  --button-text:rgb(255, 0, 0);
+  --button-border:rgb(98, 98, 98);
+}
+
+button,
+.theme-toggle,
+.button,
+.favorite-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-border);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+.button {
+  background-color: white;
+  color: gray;
+}
+
+button,
+.theme-toggle {
+  transition: background-color var(--transition-medium), color var(--transition-medium), transform var(--transition-fast);
+}
+
+button:hover,
+.theme-toggle:hover {
+  transform: scale(5.0);
+}
+
+a,
+.course-card {
+  transition: box-shadow var(--transition-medium), transform var(--transition-fast);
+}
+
+.course-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+input,
+select,
+textarea {
+  transition: border-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 4px var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/CourseCard.css';
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course, isFavorite, onToggleFavorite }) => {
   if (!course) {
     return (
       <article className='course-card empty'>
@@ -12,6 +12,14 @@ const CourseCard = ({ course }) => {
 
   return (
     <article className='course-card'>
+      <button 
+        className={`favorite-btn ${isFavorite ? 'favorited' : ''}`} 
+        onClick={() => onToggleFavorite(course.id)}
+        aria-label={isFavorite ? "Verwijder favoriet" : "Voeg toe aan favorieten"}
+      >
+        {isFavorite ? '❤️' : '🤍'}
+      </button>
+      
       <Link to={`/course/${course.id}`} className='course-link'>
         <figure className='course-image'>
           <img src={course.imageUrl} alt={course.title} />

@@ -5,10 +5,17 @@ import CourseDetail from './components/CourseDetail';
 import { courses } from './data/coursesData.js';
 import './styles/App.css';
 
+
 function App() {
   const [courseData, setCourseData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+//   ReactDOM.createRoot(document.getElementById('root')).render(
+//   <React.StrictMode>
+//       <App/>
+//   </React.StrictMode>
+// );
 
   useEffect(() => {
     const fetchData = () => {

@@ -253,3 +253,23 @@
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 4px 8px;
+  color: #555;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+  color: #e63946; /* rood */
+}
+
+.favorite-btn.favorited {
+  color: #e63946;
+  font-weight: bold;
+}

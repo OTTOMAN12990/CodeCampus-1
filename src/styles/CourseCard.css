@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative; /* toegevoegd voor absolute positionering van favorietknop en viewed badge */
 }
 
 .course-card:hover {
@@ -162,4 +163,40 @@
   .course-image {
     height: 160px;
   }
+}
+
+/* Viewed badge */
+.viewed-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #4caf50;
+  color: white;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Favoriet knop */
+.favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 40px; /* iets meer naar links, zodat niet over de viewed badge */
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s ease;
+  z-index: 20; /* hoger dan viewed badge */
+}
+
+.favorite-btn:hover {
+  color: var(--primary-color);
+}
+
+.favorite-btn.favorited {
+  color: red;
 }

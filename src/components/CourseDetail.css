@@ -85,3 +85,42 @@
   color: #e74c3c;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 768px) {
+  .course-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .course-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .course-content {
+    padding: 0.5rem 0;
+  }
+
+  .course-stats {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .favorite-btn {
+    position: static;
+    margin-top: 1rem;
+    align-self: center;
+  }
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
